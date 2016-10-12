@@ -17,7 +17,6 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View.OnClickListener;
-
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -29,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     private ViewPager viewPager;
     private LinearLayout point_group;
-    //private TextView image_desc;
+
     private final int[] images = {R.mipmap.p1, R.mipmap.p2, R.mipmap.p3};
 
     private ArrayList<ImageView> imageList;
@@ -50,19 +49,20 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     };
 
     //private LinearLayout tabHospital,tabMy;
-    private Button btnhospital,btnmy;
+    private Button btnhospital, btnmy;
     private Fragment_hospital fHospital;
     private Fragment_My fMy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
+       // setContentView(R.layout.tab1);
         initView();
         initEvent();
         setSelect(0);
-
 
 
 //        viewPager = (ViewPager) findViewById(R.id.viewPager);
@@ -77,7 +77,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 //            imageView.setBackgroundResource(i);
 //            imageList.add(imageView);
 //
-//            // 添加指示小点
+//        }
+            // 添加指示小点
 //            ImageView point = new ImageView(this);
 //            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(100,
 //                    15);
@@ -94,14 +95,14 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 //            }
 //
 //            point_group.addView(point);
-//        }
-//
-//
+ //       }
+
+
 //        viewPager.setAdapter(new MyPageAdapter());
 //        // 设置当前viewPager的位置
 //        viewPager.setCurrentItem(Integer.MAX_VALUE / 2
 //                - (Integer.MAX_VALUE / 2 % imageList.size()));
-//        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 //
 //            @Override
 //            public void onPageSelected(int position) {
@@ -113,9 +114,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 //
 //                // 把当前点设置为true,将上一个点设为false；并设置point_group图标
 //                point_group.getChildAt(position).setEnabled(true);
-//                point_group.getChildAt(position).setBackgroundResource(R.mipmap.point_bg_focus);//设置聚焦时的图标样式
+//               // point_group.getChildAt(position).setBackgroundResource(R.mipmap.point_bg_focus);//设置聚焦时的图标样式
 //                point_group.getChildAt(lastPosition).setEnabled(false);
-//                point_group.getChildAt(lastPosition).setBackgroundResource(R.mipmap.point_bg);//上一张恢复原有图标
+//                //point_group.getChildAt(lastPosition).setBackgroundResource(R.mipmap.point_bg);//上一张恢复原有图标
 //                lastPosition = position;
 //
 //            }
@@ -136,7 +137,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 //        handler.sendEmptyMessageDelayed(0, 3000);
 
 
-
     }
 
     private void initEvent() {
@@ -147,8 +147,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     }
 
     private void initView() {
-      // tabHospital = (LinearLayout) findViewById(R.id.id_tab1);
-     //   tabMy = (LinearLayout) findViewById(R.id.id_tab2);
+        // tabHospital = (LinearLayout) findViewById(R.id.id_tab1);
+        //   tabMy = (LinearLayout) findViewById(R.id.id_tab2);
         btnhospital = (Button) findViewById(R.id.btn1);
         btnmy = (Button) findViewById(R.id.btn2);
 
@@ -157,8 +157,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch(v.getId())
-        {
+        switch (v.getId()) {
             case R.id.btn1:
                 setSelect(0);
                 break;
@@ -172,47 +171,43 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();  //开启一个事物
         hideFragment(transaction);
-        switch (i)
-        {
+        switch (i) {
             case 0:
-                if(fHospital == null)
-                {
+                if (fHospital == null) {
                     fHospital = new Fragment_hospital();
-                    transaction.add(R.id.id_content,fHospital);
-                }
-                else
-                {
+                    transaction.add(R.id.id_content, fHospital);
+                } else {
                     transaction.show(fHospital);
                 }
-            break;
+                break;
             case 1:
-                if(fMy == null)
-                {
+                if (fMy == null) {
                     fMy = new Fragment_My();
-                    transaction.add(R.id.id_content,fMy);
-                }
-                else
-                {
+                    transaction.add(R.id.id_content, fMy);
+                } else {
                     transaction.show(fMy);
                 }
-            break;
+                break;
         }
         transaction.commit();
     }
 
     private void hideFragment(FragmentTransaction transaction) {
-        if(fHospital!=null)
-        {
+        if (fHospital != null) {
             transaction.hide(fHospital);
         }
-        if(fMy!=null)
-        {
+        if (fMy != null) {
             transaction.hide(fMy);
         }
     }
 
-
-
+//    @Override
+//    protected void onDestroy() {
+//// 停止滚动
+//        isRunning = false;
+//        super.onDestroy();
+//    }
+//
 //    private class MyPageAdapter extends PagerAdapter {
 //        // 需要实现以下四个方法
 //
@@ -242,6 +237,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 //            return imageList.get(position % imageList.size());
 //        }
 //
+//
 //        @Override
 //        public void destroyItem(ViewGroup container, int position, Object object) {
 //            // 销毁对应位置上的Object
@@ -249,6 +245,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 //            container.removeView((View) object);
 //            object = null;
 //        }
-
-    }
+//    }
+}
 
