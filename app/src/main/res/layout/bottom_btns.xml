@@ -2,20 +2,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="55dp"
+    android:divider="@drawable/divider_vertical"
+    android:showDividers="middle"
     android:orientation="horizontal">
+
     <LinearLayout
         android:id="@+id/id_tab1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:background="@color/bottom_green"
         android:gravity="center"
         android:orientation="vertical">
-        <Button
+
+        <TextView
+            android:id="@+id/btn1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/btn1"
-            android:text="校医院"
-            />
+            android:gravity="center"
+            android:text="@string/xiao_yiyuan"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -23,14 +30,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:background="@color/bottom_green"
         android:gravity="center"
         android:orientation="vertical">
-        <Button
+
+        <TextView
+            android:id="@+id/btn2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/btn2"
-            android:text="我的"
-            />
+            android:gravity="center"
+            android:text="@string/wo"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
