@@ -1,6 +1,7 @@
 package cn.wydewy.medicalapp;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -8,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
+
 
 
 public class MainActivity extends AppCompatActivity implements OnClickListener {
@@ -21,7 +23,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
         initView();
@@ -84,5 +85,25 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             transaction.hide(fMy);
         }
     }
+    public void ChangeOnClick(View view)
+    {
+        switch (view.getId())
+        {
+            case R.id.item1:
+                Intent it = new Intent(this, Introduce_Activity.class);
+                startActivity(it);
+                break;
+
+            case R.id.item2:
+                Intent it2 = new Intent(this, Guide_Activity.class);
+                startActivity(it2);
+                break;
+            case R.id.item5:
+                Intent it5 = new Intent(this, Order_Activity.class);
+                startActivity(it5);
+                break;
+        }
+    }
+
 }
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent">
     <!-- 定义第一个标签页的内容 -->
     <LinearLayout
@@ -13,11 +14,24 @@
 
 
         <!---->
-        <android.support.v4.view.ViewPager
-            android:id="@+id/viewPager"
-            android:layout_width="wrap_content"
-            android:layout_height="150dip" />
 
+        <android.support.v4.view.ViewPager
+            android:id = "@+id/viewPager"
+            android:layout_width="wrap_content"
+            android:layout_height="180dip"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom = "@id/viewPager"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/point_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+            </LinearLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -32,6 +46,7 @@
                 android:id="@+id/item1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:onClick="ChangeOnClick"
                 android:layout_weight="1"
                 android:background="@mipmap/grid1" />
 
@@ -39,6 +54,7 @@
                 android:id="@+id/item2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:onClick="ChangeOnClick"
                 android:layout_weight="1"
                 android:background="@mipmap/grid2" />
 
@@ -70,6 +86,7 @@
                 android:id="@+id/item5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:onClick="ChangeOnClick"
                 android:layout_weight="1"
                 android:background="@mipmap/grid5" />
 

@@ -8,7 +8,7 @@
     <RelativeLayout
         android:id="@+id/user_info"
         android:layout_width="match_parent"
-        android:layout_height="135dp"
+        android:layout_height="106dp"
         android:orientation="horizontal">
 
         <RelativeLayout
@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
-            android:layout_margin="10dp"
+            android:layout_margin="0dp"
             android:layout_toRightOf="@+id/thumbnail"
             android:orientation="vertical">
 
@@ -43,53 +43,11 @@
                 android:gravity="center"
                 android:maxLines="1"
                 android:padding="2dp"
-                android:text="----------"
+                android:text="账户:3577815855"
                 android:textColor="#000000"
-                android:textSize="25sp" />
+                android:textSize="10sp" />
 
-            <TextView
-                android:id="@+id/tv_email"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:maxLines="1"
-                android:text="-------"
-                android:textColor="#000000"
-                android:textSize="15sp" />
 
-            <TextView
-                android:id="@+id/tv_phone"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:maxLines="1"
-                android:text="----------"
-                android:textColor="#000000"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/tv_gender"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:maxLines="1"
-                android:text="----------"
-                android:textColor="#000000"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/tv_location"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:maxLines="1"
-                android:text="----------"
-                android:textColor="#000000"
-                android:textSize="15sp" />
         </LinearLayout>
 
 

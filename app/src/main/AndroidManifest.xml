@@ -15,6 +15,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Introduce_Activity" />
+        <activity android:name=".Guide_Activity" />
+        <activity android:name=".Order_Activity" />
+        <activity android:name=".Register_Activity" />
+        <activity android:name=".Order2_Activity"></activity>
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 </manifest>
