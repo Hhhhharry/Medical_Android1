@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:showDividers="middle"
+    android:divider="@drawable/divider_horizontal"
+    android:orientation="vertical">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#00ffffff"
+        android:textColor="@color/black"
+        android:text="预约挂号"
+
+        android:textSize="20sp"
+        />
+</LinearLayout>
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:background="#00ffffff"
+    android:textColor="@color/black"
+    android:paddingBottom="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_horizontal_margin"
+    android:text="预约信息"
+    android:textSize="18sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="@dimen/activity_vertical_margin2"
+            android:paddingTop="@dimen/activity_vertical_margin2"
+            android:background="#00ffffff"
+            android:textColor="@color/black"
+            android:text="预约信息"
+            android:textSize="18sp" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/office"
+            android:paddingBottom="@dimen/activity_vertical_margin2"
+            android:paddingTop="@dimen/activity_vertical_margin2"
+            android:background="#00ffffff"
+            android:textColor="@color/black"
+            android:text="骨科门诊"
+            android:textSize="18sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="@dimen/activity_vertical_margin2"
+            android:paddingTop="@dimen/activity_vertical_margin2"
+            android:background="#00ffffff"
+            android:textColor="@color/black"
+            android:text="科室区域"
+            android:textSize="18sp" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="@dimen/activity_vertical_margin2"
+            android:id="@+id/area"
+            android:paddingTop="@dimen/activity_vertical_margin2"
+            android:background="#00ffffff"
+            android:textColor="@color/black"
+            android:text="骨科门诊03诊室"
+            android:textSize="18sp" />
+    </LinearLayout><LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="@dimen/activity_vertical_margin2"
+        android:paddingTop="@dimen/activity_vertical_margin2"
+        android:background="#00ffffff"
+        android:textColor="@color/black"
+        android:text="挂号医生"
+        android:textSize="18sp" />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="@dimen/activity_vertical_margin2"
+        android:paddingTop="@dimen/activity_vertical_margin2"
+        android:id="@+id/doctor"
+        android:background="#00ffffff"
+        android:textColor="@color/black"
+        android:text="刘医生"
+        android:textSize="18sp" />
+</LinearLayout><LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="@dimen/activity_vertical_margin2"
+        android:paddingTop="@dimen/activity_vertical_margin2"
+        android:background="#00ffffff"
+        android:textColor="@color/black"
+        android:text="就诊日期"
+        android:textSize="18sp" />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="@dimen/activity_vertical_margin2"
+        android:paddingTop="@dimen/activity_vertical_margin2"
+        android:background="#00ffffff"
+        android:textColor="@color/black"
+        android:text="骨科门诊"
+        android:id="@+id/date"
+        android:textSize="18sp" />
+</LinearLayout><LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="@dimen/activity_vertical_margin2"
+        android:paddingTop="@dimen/activity_vertical_margin2"
+        android:background="#00ffffff"
+        android:textColor="@color/black"
+        android:text="挂号费"
+        android:textSize="18sp" />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="@dimen/activity_vertical_margin2"
+        android:paddingTop="@dimen/activity_vertical_margin2"
+        android:background="#00ffffff"
+        android:textColor="@color/black"
+        android:text="$100"
+        android:id="@+id/price"
+        android:textSize="18sp" />
+</LinearLayout><LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="@dimen/activity_vertical_margin2"
+        android:paddingTop="@dimen/activity_vertical_margin2"
+        android:background="#00ffffff"
+        android:textColor="@color/black"
+        android:text="就诊人"
+        android:textSize="18sp" />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="@dimen/activity_vertical_margin2"
+        android:paddingTop="@dimen/activity_vertical_margin2"
+        android:background="#00ffffff"
+        android:textColor="@color/black"
+        android:id="@+id/person"
+        android:text="行行"
+        android:textSize="18sp" />
+</LinearLayout><LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="@dimen/activity_vertical_margin2"
+        android:paddingTop="@dimen/activity_vertical_margin2"
+        android:background="#00ffffff"
+        android:textColor="@color/black"
+        android:text="身份证号"
+        android:textSize="18sp" />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="@dimen/activity_vertical_margin2"
+        android:paddingTop="@dimen/activity_vertical_margin2"
+        android:background="#00ffffff"
+        android:textColor="@color/black"
+        android:id="@+id/id_num"
+        android:text="4205554545454551"
+        android:textSize="18sp" />
+</LinearLayout><LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="@dimen/activity_vertical_margin2"
+        android:paddingTop="@dimen/activity_vertical_margin2"
+        android:background="#00ffffff"
+        android:textColor="@color/black"
+        android:text="联系电话"
+        android:textSize="18sp" />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="@dimen/activity_vertical_margin2"
+        android:paddingTop="@dimen/activity_vertical_margin2"
+        android:background="#00ffffff"
+        android:id="@+id/phone_num"
+        android:textColor="@color/black"
+        android:text="42225"
+        android:textSize="18sp" />
+</LinearLayout><LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="@dimen/activity_vertical_margin2"
+        android:paddingTop="@dimen/activity_vertical_margin2"
+        android:background="#00ffffff"
+        android:textColor="@color/black"
+        android:text="预约就诊"
+        android:textSize="18sp"
+        android:id="@+id/confirm" />
+
+</LinearLayout>
+</LinearLayout>

@@ -43,8 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:textSize="12dp"
-            android:text="为了保障你的账户安全，请填写以下信息进行登陆"
-            android:id="@+id/textView" />
+            android:text="为了保障你的账户安全，请填写以下信息进行登陆" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,31 +51,39 @@
             android:textSize="15dp"
             android:layout_marginTop="@dimen/activity_vertical_margin"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:id="@+id/name"
             android:background="@drawable/shape_label"/>
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="请输入以注册的账户名"
             android:textSize="15dp"
+            android:id="@+id/account"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
             android:background="@drawable/shape_label"/>
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="请输入以注册的手机号码"
             android:textSize="15dp"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:id="@+id/phone_number"
             android:background="@drawable/shape_label"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="请输入密码"
             android:textSize="15dp"
+            android:id="@+id/password"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
             android:background="@drawable/shape_label"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/login"
+            android:onClick="LoginOnClick"
             android:text="登录"/>
         <Button
             android:layout_width="match_parent"

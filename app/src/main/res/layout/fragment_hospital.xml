@@ -11,10 +11,6 @@
         android:divider="@drawable/divider_horizontal"
         android:showDividers="middle"
         android:orientation="vertical">
-
-
-        <!---->
-
         <android.support.v4.view.ViewPager
             android:id = "@+id/viewPager"
             android:layout_width="wrap_content"
@@ -69,22 +65,23 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:divider="@drawable/divider_vertical"
             android:gravity="center_horizontal"
             android:orientation="horizontal"
+            android:layout_weight="1"
             android:showDividers="middle">
 
             <ImageView
                 android:id="@+id/item4"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@mipmap/grid4" />
+                android:onClick="ChangeOnClick"
+                android:background="@mipmap/grid5" />
 
             <ImageView
                 android:id="@+id/item5"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:onClick="ChangeOnClick"
                 android:layout_weight="1"
@@ -92,35 +89,13 @@
 
             <ImageView
                 android:id="@+id/item6"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@mipmap/grid6" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:divider="@drawable/divider_vertical"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal"
-            android:showDividers="middle">
 
-            <ImageView
-                android:id="@+id/item7"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@mipmap/jkbk" />
-
-            <ImageView
-                android:id="@+id/item8"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@mipmap/jtys" />
-        </LinearLayout>
 
     </LinearLayout>
 

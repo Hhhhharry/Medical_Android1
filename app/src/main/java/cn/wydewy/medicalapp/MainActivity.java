@@ -1,7 +1,9 @@
 package cn.wydewy.medicalapp;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -10,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
+import static cn.wydewy.medicalapp.R.id.date;
 
 
 public class MainActivity extends AppCompatActivity implements OnClickListener {
@@ -18,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     private Fragment_hospital fHospital;
     private Fragment_my fMy;
     private FragmentManager fManager;
+    private data da;
 
 
     @Override
@@ -28,7 +32,13 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         initView();
         initEvent();
         fManager = getSupportFragmentManager();
-        setSelect(0);
+
+        da = (data) getApplication();
+        if(!da.isLog())
+            setSelect(0);
+        else
+            setSelect(1);
+
     }
     private void initEvent() {
         btnhospital.setOnClickListener(this);
@@ -97,6 +107,10 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             case R.id.item2:
                 Intent it2 = new Intent(this, Guide_Activity.class);
                 startActivity(it2);
+                break;
+            case R.id.item4:
+                Intent it4 = new Intent(this, Schedule_Activity.class);
+                startActivity(it4);
                 break;
             case R.id.item5:
                 Intent it5 = new Intent(this, Order_Activity.class);

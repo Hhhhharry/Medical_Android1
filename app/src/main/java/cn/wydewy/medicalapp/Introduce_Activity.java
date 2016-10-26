@@ -11,6 +11,13 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,7 +33,7 @@ public class Introduce_Activity extends AppCompatActivity {
 
     private TextView Name,Intro;
     private String[] items = new String[]{"儿科","内科","妇产科","血科","保健科","皮肤科","外科","眼科","儿童科","肾内科","妇产科","血科"};
-    private String Url = "http://192.168.1.130:8080/framework/hospital/select";
+    private String Url = "http://192.168.1.112:8080/framework/hospital/select";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,41 +43,58 @@ public class Introduce_Activity extends AppCompatActivity {
         Name = (TextView) findViewById(R.id.name);
         Intro = (TextView) findViewById(R.id.introduce);
 
+        RequestQueue mqueue = Volley.newRequestQueue(this);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject jsonObject) {
+                        System.out.println(jsonObject.toString());
+                        JSONAnalysis(jsonObject.toString());
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
 
-        //连接测试
-        new Thread() {
-            public void run() {
+                 }
+        });
+        mqueue.add(jsonObjectRequest);
 
-                try {
 
-            URL url = new URL(Url);
-            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-             /* optional request header */
-            urlConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-
-             /* optional request header */
-            urlConnection.setRequestProperty("Accept", "application/json");
-
-            urlConnection.setRequestMethod("GET");//使用GET方法获取
-
-            int statusCode = urlConnection.getResponseCode();
-            System.out.println("~~~~~~~"+statusCode);
-            /* 200 represents HTTP OK */
-            if (statusCode == 200) {
-                InputStream inputStream = urlConnection.getInputStream();
-                String result = HttpUtils.readMyInputStream(inputStream);
-               //System.out.println("~~~~~~~"+inputStream.toString());
-                Message msg = new Message();
-                msg.obj = result;
-                JSONAnalysis(result);
-            }
-        } catch (Exception e) {
-
-                    e.printStackTrace();
-
-                }
-            }
-        }.start();
+//        //连接测试
+//        new Thread() {
+//            public void run() {
+//
+//                try {
+//
+//            URL url = new URL(Url);
+//            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+//             /* optional request header */
+//            urlConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+//
+//             /* optional request header */
+//            urlConnection.setRequestProperty("Accept", "application/json");
+//
+//            urlConnection.setRequestMethod("GET");//使用GET方法获取
+//
+//            int statusCode = urlConnection.getResponseCode();
+//            System.out.println("~~~~~~~"+statusCode);
+//            /* 200 represents HTTP OK */
+//            if (statusCode == 200) {
+//                InputStream inputStream = urlConnection.getInputStream();
+//                String result = HttpUtils.readMyInputStream(inputStream);
+//               //System.out.println("~~~~~~~"+inputStream.toString());
+//                Message msg = new Message();
+//                msg.obj = result;
+//                JSONAnalysis(result);
+//            }
+//        } catch (Exception e) {
+//
+//                    e.printStackTrace();
+//
+//                }
+//            }
+//        }.start();
 
 
 
