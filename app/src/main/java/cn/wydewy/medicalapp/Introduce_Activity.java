@@ -35,7 +35,7 @@ public class Introduce_Activity extends AppCompatActivity {
 
     private TextView Name,Intro;
     private String[] items = new String[]{"儿科","内科","妇产科","血科","保健科","皮肤科","外科","眼科","儿童科","肾内科","妇产科","血科"};
-    private String Url = "http://192.168.1.108:8080/framework/hospital/insert";
+    private String Url = "http://192.168.1.108:8080/framework/hospital/   ";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
