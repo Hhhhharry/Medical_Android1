@@ -27,13 +27,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class Introduce_Activity extends AppCompatActivity {
 
     private TextView Name,Intro;
     private String[] items = new String[]{"儿科","内科","妇产科","血科","保健科","皮肤科","外科","眼科","儿童科","肾内科","妇产科","血科"};
-    private String Url = "http://192.168.1.112:8080/framework/hospital/select";
+    private String Url = "http://192.168.1.108:8080/framework/hospital/insert";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

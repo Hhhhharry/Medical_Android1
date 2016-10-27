@@ -15,6 +15,8 @@
             android:id = "@+id/viewPager"
             android:layout_width="wrap_content"
             android:layout_height="180dip"/>
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,41 +31,89 @@
             </LinearLayout>
         </LinearLayout>
 
+
+
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:divider="@drawable/divider_vertical"
             android:gravity="center_horizontal"
             android:orientation="horizontal"
             android:showDividers="middle">
-
-            <ImageView
+            <LinearLayout
                 android:id="@+id/item1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:paddingTop="@dimen/activity_vertical_margin2"
+                android:paddingBottom="@dimen/activity_vertical_margin2"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:onClick="ChangeOnClick"
+                android:layout_weight="1"
+                android:orientation="vertical">
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:onClick="ChangeOnClick"
                 android:layout_weight="1"
                 android:background="@mipmap/grid1" />
-
-            <ImageView
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/blue"
+                android:text="医院概况"/>
+            </LinearLayout>
+            <LinearLayout
                 android:id="@+id/item2"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:onClick="ChangeOnClick"
+                android:paddingTop="@dimen/activity_vertical_margin2"
+                android:paddingBottom="@dimen/activity_vertical_margin2"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
                 android:layout_weight="1"
-                android:background="@mipmap/grid2" />
-
-            <ImageView
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@mipmap/grid2" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/blue"
+                    android:text="医院导航"/>
+            </LinearLayout>
+            <LinearLayout
                 android:id="@+id/item3"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:onClick="ChangeOnClick"
+                android:paddingTop="@dimen/activity_vertical_margin2"
+                android:paddingBottom="@dimen/activity_vertical_margin2"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
                 android:layout_weight="1"
-                android:background="@mipmap/grid3" />
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@mipmap/grid4" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/blue"
+                    android:text="科室特色"/>
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:divider="@drawable/divider_vertical"
             android:gravity="center_horizontal"
@@ -71,28 +121,78 @@
             android:layout_weight="1"
             android:showDividers="middle">
 
-            <ImageView
+            <LinearLayout
                 android:id="@+id/item4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:paddingTop="@dimen/activity_vertical_margin2"
+                android:paddingBottom="@dimen/activity_vertical_margin2"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
                 android:onClick="ChangeOnClick"
-                android:background="@mipmap/grid5" />
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <ImageView
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@mipmap/grid3"
+                    android:id="@+id/imageView2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/blue"
+                    android:text="家庭医生"/>
+            </LinearLayout>
+            <LinearLayout
                 android:id="@+id/item5"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:onClick="ChangeOnClick"
+                android:paddingTop="@dimen/activity_vertical_margin2"
+                android:paddingBottom="@dimen/activity_vertical_margin2"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
                 android:layout_weight="1"
-                android:background="@mipmap/grid5" />
-
-            <ImageView
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@mipmap/grid5" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/blue"
+                    android:text="预约挂号"/>
+            </LinearLayout>
+            <LinearLayout
                 android:id="@+id/item6"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:onClick="ChangeOnClick"
+                android:paddingTop="@dimen/activity_vertical_margin2"
+                android:paddingBottom="@dimen/activity_vertical_margin2"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
                 android:layout_weight="1"
-                android:background="@mipmap/grid6" />
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@mipmap/grid6" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/blue"
+                    android:text="查询报告"/>
+            </LinearLayout>
         </LinearLayout>
 
 

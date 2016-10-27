@@ -24,12 +24,7 @@
             android:textSize="20sp"
             android:textStyle="bold"/>
     </LinearLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:gravity="center"
-        android:textSize="16dp"
-        android:text="用户登录"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -47,7 +42,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="请输入以注册的真实名字"
+            android:hint="请输入用户名"
             android:textSize="15dp"
             android:layout_marginTop="@dimen/activity_vertical_margin"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
@@ -57,7 +52,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="请输入以注册的账户名"
+            android:hint="请输入以注册的身份证"
             android:textSize="15dp"
             android:id="@+id/account"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
@@ -90,4 +85,12 @@
             android:layout_height="wrap_content"
             android:text="注册"/>
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:textSize="16dp"
+        android:text="用户登录"/>
+
 </LinearLayout>

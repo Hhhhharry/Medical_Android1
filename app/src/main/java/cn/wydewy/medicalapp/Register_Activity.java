@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -21,6 +22,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,30 +47,28 @@ public class Register_Activity extends AppCompatActivity {
     }
 
     public void LoginOnClick(View view) {
-            String url = "";
+            String url = "http://192.168.1.140:8080/framework/customer/selectByCustomerName";
             flag = false;
             final String n = name.getText().toString();
             final String a = account.getText().toString();
             final String ph = phonenumber.getText().toString();
             final String pa = password.getText().toString();
             Map<String,String> map = new HashMap<>();
-//            map.put("name",name.getText().toString());
               map.put("account",account.getText().toString());
-//            map.put("phonenumber",phonenumber.getText().toString());
-//            map.put("password",password.getText().toString());
-              JSONObject data = new JSONObject(map);
+             JSONObject data1 = new JSONObject(map);
             //进行HTTP通信
             RequestQueue mqueue = Volley.newRequestQueue(this);
-            JsonObjectRequest objectRequest = new JsonObjectRequest(url, data,
+            System.out.println(data1.toString());
+            JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.POST, url, data1,
                     new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject jsonObject) {
+                            System.out.println(jsonObject.toString());
                             if(jsonObject.optString("name").equals(n)&&jsonObject.optString("customerId").equals(a)&&jsonObject.optString("idCard").equals(ph)&&jsonObject.optString("password").equals(pa))
                             {
                                 flag = true;
                                 da.setLog(true);
                             }
-
                         }
                     }, new Response.ErrorListener() {
                 @Override
@@ -77,6 +77,7 @@ public class Register_Activity extends AppCompatActivity {
                 }
             });
             mqueue.add(objectRequest);
+
             if (flag) {
                 Intent it = new Intent(this, MainActivity.class);
                 startActivity(it);
