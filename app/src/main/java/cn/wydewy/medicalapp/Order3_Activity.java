@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -19,23 +18,33 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
-import static cn.wydewy.medicalapp.R.id.activity_order2;
+import java.util.HashMap;
+import java.util.Map;
 
-public class Order2_Activity extends AppCompatActivity {
-    private String[] items = new String[]{"儿科","内科","妇产科","血科","保健科","皮肤科","外科","眼科","儿童科","肾内科","妇产科","血科"};
+public class Order3_Activity extends AppCompatActivity {
+
+    private String[] items = new String[]{"门诊一","门诊二"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order2);
+        setContentView(R.layout.activity_order3);
         getSupportActionBar().hide();
 
+        Intent intent = getIntent(); //用于激活它的意图对象：这里的intent获得的是上个Activity传递的intent
+        Bundle bundle = intent.getExtras();
+        String item = bundle.getString("selectedItem");
+
         String url = "";
-        RequestQueue mqueue = Volley.newRequestQueue(this);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, null,
+        Map<String,String> map = new HashMap<>();
+        map.put("item","");
+        JSONObject data = new JSONObject(map);     //传值
+
+        RequestQueue mqueu = Volley.newRequestQueue(this);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url,data,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject jsonObject) {
-                                                                                    //得到后台数据
+                        jsonObject.optString("data");    //这里要得到后台传来的门诊数和各个门诊的名字
                     }
                 },
                 new Response.ErrorListener() {
@@ -46,11 +55,12 @@ public class Order2_Activity extends AppCompatActivity {
                 });
 
 
-        ListView introlist = (ListView) findViewById(R.id.introduce_list2);
+
+        ListView introlist = (ListView) findViewById(R.id.introduce_list3);
         BaseAdapter adapter = new BaseAdapter() {
             @Override
             public int getCount() {
-                return 12;
+                return 2;
             }
 
             @Override
@@ -65,7 +75,7 @@ public class Order2_Activity extends AppCompatActivity {
 
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
-                TextView text = new TextView(Order2_Activity.this);
+                TextView text = new TextView(Order3_Activity.this);
                 text.setText(items[position]);
                 text.setPadding(50,50,0,50);
                 text.setTextColor(android.graphics.Color.rgb(0,0,0));
@@ -74,18 +84,17 @@ public class Order2_Activity extends AppCompatActivity {
             }
         };
         introlist.setAdapter(adapter);
-        introlist.setOnItemClickListener(new OnItemClickListener()
+        introlist.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent it = new Intent(Order2_Activity.this,Order3_Activity.class);
+                Intent it = new Intent(Order3_Activity.this,Confirm_Activity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("selectedItem",items[position]);
                 it.putExtras(bundle);
                 startActivityForResult(it,0);
             }
         });
-
     }
 }
