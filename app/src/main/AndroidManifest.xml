@@ -24,8 +24,9 @@
         <activity android:name=".Register_Activity" />
         <activity android:name=".Order2_Activity" />
         <activity android:name=".Schedule_Activity" />
-        <activity android:name=".Confirm_Activity"></activity>
-        <activity android:name=".Order3_Activity"></activity>
+        <activity android:name=".Confirm_Activity" />
+        <activity android:name=".Order3_Activity" />
+        <activity android:name=".Register2_Activity"></activity>
     </application>
 
 </manifest>

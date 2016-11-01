@@ -28,48 +28,57 @@ import java.util.Map;
 
 public class Register_Activity extends AppCompatActivity {
 
-    private EditText name,account,phonenumber,password;
+    private EditText idcard,account,phonenumber,password;
 
 
     private data da;
-    boolean flag = false;
+    private boolean flag = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         getSupportActionBar().hide();
         da = (data) getApplication();
-        name = (EditText) findViewById(R.id.name);
         account = (EditText) findViewById(R.id.account);
+        idcard = (EditText) findViewById(R.id.idcard);
         phonenumber = (EditText) findViewById(R.id.phone_number);
         password = (EditText) findViewById(R.id.password);
-
+        if(da.isLog())   //如果已经登录进行跳转
+            change();
     }
 
     public void LoginOnClick(View view) {
-            String url = "http://192.168.1.140:8080/framework/customer/selectByCustomerName";
-            flag = false;
-            final String n = name.getText().toString();
+            String url = "http://192.168.1.132:8080/framework/customer/loginVerifyByUserName";
             final String a = account.getText().toString();
+            final String i = idcard.getText().toString();
             final String ph = phonenumber.getText().toString();
             final String pa = password.getText().toString();
             Map<String,String> map = new HashMap<>();
-              map.put("account",account.getText().toString());
+              map.put("account",a);
              JSONObject data1 = new JSONObject(map);
             //进行HTTP通信
             RequestQueue mqueue = Volley.newRequestQueue(this);
             System.out.println(data1.toString());
-            JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.POST, url, data1,
+            CustomRequest objectRequest = new CustomRequest(Request.Method.POST, url, map,
                     new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject jsonObject) {
-                            System.out.println(jsonObject.toString());
-                            if(jsonObject.optString("name").equals(n)&&jsonObject.optString("customerId").equals(a)&&jsonObject.optString("idCard").equals(ph)&&jsonObject.optString("password").equals(pa))
+                            System.out.println(jsonObject.optJSONObject("datum").toString());
+                            JSONObject json = jsonObject.optJSONObject("datum");
+                            String i1 = json.optString("idCard").toString();
+                            String ph1 = json.optString("phone").toString();
+                            String pa1 = json.optString("password").toString();
+                            if(i1.equals(i)&&ph1.equals(ph)&&pa1.equals(pa))
                             {
-                                flag = true;
+                                change();
                                 da.setLog(true);
+                                da.setAccount(a);    //存储已登录的用户名
+                            }
+                            else {
+                                toast();
                             }
                         }
+
                     }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError volleyError) {
@@ -78,20 +87,21 @@ public class Register_Activity extends AppCompatActivity {
             });
             mqueue.add(objectRequest);
 
-            if (flag) {
-                Intent it = new Intent(this, MainActivity.class);
-                startActivity(it);
-            }
-            else {
-                Toast toast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
-                 toast.setText("账号密码输入错误");
-                 toast.show();
-            }
-
-
-
+    }
+    public void LoginOnClick1(View view)
+    {
+        Intent it = new Intent(this, Register2_Activity.class);
+        startActivity(it);
+    }
+    private void toast() {
+        Toast toast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
+        toast.setText("账号密码输入错误");
+        toast.show();
     }
 
-
+    private void change() {
+        Intent it = new Intent(this, MainActivity.class);
+        startActivity(it);
+    }
 }
 

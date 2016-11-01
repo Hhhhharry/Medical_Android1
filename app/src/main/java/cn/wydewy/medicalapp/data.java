@@ -10,6 +10,16 @@ public class data extends Application {
 
 
     boolean IsLog;
+    private String account;
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
+
+
     public boolean isLog() {
         return IsLog;
     }
