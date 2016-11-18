@@ -3,6 +3,8 @@
     xmlns:imagecontrol="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:showDividers="middle"
+    android:divider="@drawable/divider_horizontal"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -10,33 +12,32 @@
         android:layout_width="match_parent"
         android:layout_height="106dp"
         android:background="@drawable/shape_label2"
-        android:paddingBottom="@dimen/activity_vertical_margin2"
-        android:orientation="horizontal">
-
+        android:onClick="MyOnClick"
+        android:paddingBottom="@dimen/activity_vertical_margin2">
         <RelativeLayout
             android:id="@+id/thumbnail"
             android:layout_width="110dp"
             android:layout_height="match_parent">
-
             <cn.wydewy.medicalapp.view.RoundImageView
-                android:id="@+id/img_thumbnail"
+                android:id="@+id/User_detail"
                 android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_centerInParent="true"
-                android:src="@mipmap/ic_launcher"
+                android:layout_height="70dp"
+                android:onClick="MyOnClick"
+                android:src="@mipmap/touxiang"
                 imagecontrol:border_inside_color="@color/sky_blue"
                 imagecontrol:border_outside_color="#55ffffff"
-                imagecontrol:border_thickness="1.5dp" />
-        </RelativeLayout>
+                imagecontrol:border_thickness="1.5dp"
+                android:layout_centerHorizontal="true" />
+    </RelativeLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/activity_horizontal_margin2"
             android:layout_margin="0dp"
             android:layout_toRightOf="@+id/thumbnail"
             android:orientation="vertical">
-
             <TextView
                 android:id="@+id/tv_nickname"
                 android:layout_width="match_parent"
@@ -45,35 +46,39 @@
                 android:gravity="center"
                 android:maxLines="1"
                 android:padding="2dp"
-                android:text="账户:3577815855"
+                android:text="行行行行行行行行"
                 android:textColor="#000000"
                 android:textSize="10sp" />
-
-
         </LinearLayout>
 
 
     </RelativeLayout>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp">
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/white"
         android:id="@+id/tab_list"
-        android:paddingTop="@dimen/activity_vertical_margin2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape_label2"
+        android:showDividers="middle"
+        android:divider="@drawable/divider_horizontal"
         android:orientation="vertical">
-
         <RelativeLayout
-            android:id="@+id/tab_yyjl"
+            android:id="@+id/my_yyjl"
             android:layout_width="match_parent"
-            android:layout_height="38dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:onClick="MyOnClick"
             android:background="@drawable/item_clicked_effect">
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
-
+                android:orientation="horizontal"
+                android:id="@+id/linearLayout">
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="match_parent"
@@ -81,7 +86,7 @@
                     android:layout_marginLeft="15dp"
                     android:paddingLeft="2dp"
                     android:paddingRight="2dp"
-                    android:src="@mipmap/ic_launcher" />
+                    android:src="@mipmap/yuyue1" />
                 <TextView
                     android:id="@+id/tv_my_yyjl"
                     android:layout_width="wrap_content"
@@ -91,21 +96,31 @@
                     android:padding="2dp"
                     android:text="预约记录"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
             </LinearLayout>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:src="@mipmap/right"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginEnd="20dp" />
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/tab_my_zxjl"
-            android:layout_width="wrap_content"
-            android:layout_height="38dp"
+            android:id="@+id/my_zixun"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
             android:background="@drawable/item_clicked_effect">
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
-
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="match_parent"
@@ -113,10 +128,8 @@
                     android:layout_marginLeft="15dp"
                     android:paddingLeft="2dp"
                     android:paddingRight="2dp"
-                    android:src="@mipmap/ic_launcher" />
-
+                    android:src="@mipmap/ziyun2" />
                 <TextView
-                    android:id="@+id/tv_coupon_code"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
@@ -124,20 +137,30 @@
                     android:padding="2dp"
                     android:text="咨询记录"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
             </LinearLayout>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:src="@mipmap/right"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginEnd="20dp" />
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/tab_my_xfjl"
+            android:id="@+id/my_xiaofei"
             android:layout_width="match_parent"
-            android:layout_height="38dp"
+            android:layout_height="40dp"
             android:background="@drawable/item_clicked_effect">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
-
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="match_parent"
@@ -145,9 +168,8 @@
                     android:layout_marginLeft="15dp"
                     android:paddingLeft="2dp"
                     android:paddingRight="2dp"
-                    android:src="@mipmap/ic_launcher" />
+                    android:src="@mipmap/xiaofei3" />
                 <TextView
-                    android:id="@+id/tv_wish_list"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
@@ -155,21 +177,31 @@
                     android:padding="2dp"
                     android:text="消费记录"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
             </LinearLayout>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:src="@mipmap/right"
+                android:id="@+id/imageView4"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginEnd="20dp" />
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/tab_basic_information"
+            android:id="@+id/my_qinyou"
             android:layout_width="match_parent"
-            android:layout_height="38dp"
-            >
-
+            android:layout_height="40dp"
+            android:background="@drawable/item_clicked_effect">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
-
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="match_parent"
@@ -177,10 +209,8 @@
                     android:layout_marginLeft="15dp"
                     android:paddingLeft="2dp"
                     android:paddingRight="2dp"
-                    android:src="@mipmap/ic_launcher" />
-
+                    android:src="@mipmap/qinyou4" />
                 <TextView
-                    android:id="@+id/tv_basic_infomation"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
@@ -188,21 +218,29 @@
                     android:padding="2dp"
                     android:text="亲友管理"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
             </LinearLayout>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:src="@mipmap/right"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginEnd="20dp" />
         </RelativeLayout>
-
         <RelativeLayout
-            android:id="@+id/tab_shipping_address"
+            android:id="@+id/my_mima"
             android:layout_width="match_parent"
-            android:layout_height="38dp"
+            android:layout_height="40dp"
             android:background="@drawable/item_clicked_effect">
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
-
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="match_parent"
@@ -210,44 +248,8 @@
                     android:layout_marginLeft="15dp"
                     android:paddingLeft="2dp"
                     android:paddingRight="2dp"
-                    android:src="@mipmap/ic_launcher" />
-
+                    android:src="@mipmap/mima5" />
                 <TextView
-                    android:id="@+id/tv_shipping_address"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:gravity="center"
-                    android:padding="2dp"
-                    android:text="关注医生"
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
-            </LinearLayout>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/tab_payment_card"
-            android:layout_width="match_parent"
-            android:layout_height="38dp"
-            android:background="@drawable/item_clicked_effect">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginLeft="15dp"
-                    android:paddingLeft="2dp"
-                    android:paddingRight="2dp"
-                    android:src="@mipmap/ic_launcher" />
-
-                <TextView
-                    android:id="@+id/tv_payment_card"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
@@ -255,22 +257,32 @@
                     android:padding="2dp"
                     android:text="修改密码"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
             </LinearLayout>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:src="@mipmap/right"
 
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginEnd="20dp" />
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/tab_change_password"
+            android:id="@+id/my_shezi"
             android:layout_width="match_parent"
-            android:layout_height="38dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
             android:background="@drawable/item_clicked_effect">
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
-
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="match_parent"
@@ -278,10 +290,8 @@
                     android:layout_marginLeft="15dp"
                     android:paddingLeft="2dp"
                     android:paddingRight="2dp"
-                    android:src="@mipmap/ic_launcher" />
-
+                    android:src="@mipmap/shezhi6" />
                 <TextView
-                    android:id="@+id/tv_change_password"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
@@ -289,22 +299,35 @@
                     android:padding="2dp"
                     android:text="设置"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
             </LinearLayout>
-
             <ImageView
-                android:layout_width="wrap_content"
+                android:layout_width="30dp"
                 android:layout_height="match_parent"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:src="@mipmap/right"
+                android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
-                android:paddingBottom="5dp"
-                android:paddingRight="5dp"
-                android:paddingTop="5dp" />
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginEnd="20dp" />
         </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@drawable/divider_horizontal"></LinearLayout>
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_button_darkgreen"
+            android:paddingLeft="@dimen/activity_horizontal_margin80"
+            android:paddingRight="@dimen/activity_horizontal_margin80"
+            android:textColor="@color/white"
+            android:id="@+id/User_detail_logout"
+            android:onClick="LoginOnClick"
+            android:text="退出登录"/>
+        />
     </LinearLayout>
-
 </LinearLayout>

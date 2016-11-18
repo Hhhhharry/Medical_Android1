@@ -1,10 +1,6 @@
 package cn.wydewy.medicalapp;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,14 +11,10 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,24 +23,21 @@ public class Register_Activity extends AppCompatActivity {
     private EditText idcard,account,phonenumber,password;
 
 
-    private data da;
     private boolean flag = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         getSupportActionBar().hide();
-        da = (data) getApplication();
         account = (EditText) findViewById(R.id.account);
         idcard = (EditText) findViewById(R.id.idcard);
         phonenumber = (EditText) findViewById(R.id.phone_number);
         password = (EditText) findViewById(R.id.password);
-        if(da.isLog())   //如果已经登录进行跳转
-            change();
     }
 
     public void LoginOnClick(View view) {
-            String url = "http://192.168.1.132:8080/framework/customer/loginVerifyByUserName";
+            String urlhead = ((MedicalApplication)getApplication()).getUrlhead();
+            String url = urlhead + "framework/customer/loginVerifyByUserName";
             final String a = account.getText().toString();
             final String i = idcard.getText().toString();
             final String ph = phonenumber.getText().toString();
@@ -65,14 +54,15 @@ public class Register_Activity extends AppCompatActivity {
                         public void onResponse(JSONObject jsonObject) {
                             System.out.println(jsonObject.optJSONObject("datum").toString());
                             JSONObject json = jsonObject.optJSONObject("datum");
-                            String i1 = json.optString("idCard").toString();
+                            String i1 = json.optString("idcard").toString();
                             String ph1 = json.optString("phone").toString();
                             String pa1 = json.optString("password").toString();
+                            System.out.println(pa);
                             if(i1.equals(i)&&ph1.equals(ph)&&pa1.equals(pa))
                             {
                                 change();
-                                da.setLog(true);
-                                da.setAccount(a);    //存储已登录的用户名
+                                ((MedicalApplication)getApplication()).setLog(true);
+                                ((MedicalApplication)getApplication()).setAccount(a);    //存储已登录的用户名
                             }
                             else {
                                 toast();
@@ -101,7 +91,9 @@ public class Register_Activity extends AppCompatActivity {
 
     private void change() {
         Intent it = new Intent(this, MainActivity.class);
+        it.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(it);
+        this.finish();
     }
 }
 

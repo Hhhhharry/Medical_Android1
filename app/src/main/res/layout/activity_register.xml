@@ -12,7 +12,7 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:background="@color/white"
+        android:background="@color/green_dark"
         android:gravity="center"
         android:orientation="vertical">
         <TextView
@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="北京邮电大学校医院"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="20sp"
             />
     </LinearLayout>
@@ -75,18 +75,35 @@
             android:inputType="textPassword"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
             android:background="@drawable/shape_label"/>
-        <Button
+        <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+        <Button
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/login"
+            android:background="@drawable/shape_button_darkgreen"
+            android:paddingLeft="@dimen/activity_horizontal_margin80"
+            android:paddingRight="@dimen/activity_horizontal_margin80"
             android:onClick="LoginOnClick"
+            android:textColor="@color/white"
             android:text="登录"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/activity_vertical_margin"/>
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/login2"
+            android:background="@drawable/shape_button_darkgreen"
+            android:paddingLeft="@dimen/activity_horizontal_margin80"
+            android:paddingRight="@dimen/activity_horizontal_margin80"
             android:onClick="LoginOnClick1"
+            android:textColor="@color/white"
             android:text="注册"/>
+        </LinearLayout>
     </LinearLayout>
 
     <TextView

@@ -12,7 +12,7 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:background="@color/white"
+        android:background="@color/green_dark"
         android:gravity="center"
         android:orientation="vertical">
         <TextView
@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="#00ffffff"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:text="北京邮电大学校医院"
             android:textSize="20sp" />
     </LinearLayout>
@@ -76,12 +76,21 @@
             android:layout_marginBottom="@dimen/activity_vertical_margin"
             android:background="@drawable/shape_label"
             android:selectAllOnFocus="false" />
-        <Button
+        <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+        <Button
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/shape_button_darkgreen"
+            android:paddingLeft="@dimen/activity_horizontal_margin80"
+            android:paddingRight="@dimen/activity_horizontal_margin80"
+            android:textColor="@color/white"
             android:id="@+id/register2"
             android:onClick="LoginOnClick"
             android:text="确认注册"/>
+            </LinearLayout>
 
     </LinearLayout>
 

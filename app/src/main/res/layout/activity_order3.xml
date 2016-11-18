@@ -12,7 +12,7 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:background="@color/white"
+        android:background="@color/green_dark"
         android:gravity="center"
         android:orientation="vertical">
         <TextView
@@ -20,9 +20,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="#00ffffff"
+            android:textColor="@color/white"
+            android:id="@+id/Order3_Activity_Title"
             android:text="预约挂号"
             android:textSize="20sp"
-            android:textStyle="bold"/>
+            />
     </LinearLayout>
     <ListView
         android:layout_width="match_parent"

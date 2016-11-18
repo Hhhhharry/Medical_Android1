@@ -21,8 +21,15 @@ public class Order_Activity extends AppCompatActivity implements OnClickListener
         switch (v.getId())
         {
             case R.id.register:
-                Intent it = new Intent(this, Register_Activity.class);
-                startActivity(it);
+                if(((MedicalApplication)getApplication()).isLog()){
+                    //如果已经登录进行跳转
+                    change();
+                }else{
+                    Intent it = new Intent(this, Register_Activity.class);
+                    startActivity(it);
+                }
+
+
                 break;
             case R.id.order2:
                 Intent it1 = new Intent(this, Order2_Activity.class);
@@ -30,5 +37,12 @@ public class Order_Activity extends AppCompatActivity implements OnClickListener
                 break;
 
         }
+    }
+
+    private void change() {
+        Intent it = new Intent(this, MainActivity.class);
+        it.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(it);
+        this.finish();
     }
 }

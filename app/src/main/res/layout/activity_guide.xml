@@ -10,17 +10,17 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:background="@mipmap/top"
+        android:background="@color/green_dark"
         android:gravity="center"
         android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="#00ffffff"
             android:text="医院导航"
+            android:textColor="@color/white"
             android:textSize="20sp"
-            android:textStyle="bold"/>
+            />
     </LinearLayout>
     <ImageView
         android:layout_width="match_parent"
@@ -54,6 +54,7 @@
                 android:layout_height="70dp"
                 android:textSize="15sp"
                 android:textColor="@color/black"
+                android:id="@+id/bus"
                 android:background="@drawable/shape_label"
                 android:text="途径公交：102,111,998"/>
         </LinearLayout>
@@ -76,6 +77,7 @@
                 android:textSize="15sp"
                 android:textColor="@color/black"
                 android:background="@drawable/shape_label"
+                android:id="@+id/website"
                 android:text="www.bupt.hospital.com"/>
         </LinearLayout>
 
@@ -96,6 +98,7 @@
                 android:layout_height="60dp"
                 android:textSize="15sp"
                 android:textColor="@color/black"
+                android:id="@+id/hospital_phone"
                 android:background="@drawable/shape_label"
                 android:text="010-85656569"/>
         </LinearLayout>

@@ -9,5 +9,6 @@
     <color name="sky_blue">#66ffff</color>
     <color name="item_focus_color">#11101010</color>
     <color name="item_normal_color">#00ffffff</color>
+    <color name="green_dark">#006400</color>
     <color name="blue">#3333ff</color>
 </resources>

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:imagecontrol="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:showDividers="middle"
+    android:divider="@drawable/divider_horizontal"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="106dp"
+        android:background="@drawable/shape_label2"
+        android:paddingBottom="@dimen/activity_vertical_margin2">
+        <RelativeLayout
+            android:id="@+id/thumbnail"
+            android:layout_width="110dp"
+            android:layout_height="match_parent">
+            <cn.wydewy.medicalapp.view.RoundImageView
+                android:layout_width="80dp"
+                android:layout_height="70dp"
+                android:onClick="MyOnClick"
+                android:src="@mipmap/touxiang"
+                imagecontrol:border_inside_color="@color/sky_blue"
+                imagecontrol:border_outside_color="#55ffffff"
+                imagecontrol:border_thickness="1.5dp"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/activity_horizontal_margin2"
+            android:layout_margin="0dp"
+            android:orientation="horizontal"
+            android:layout_toRightOf="@+id/thumbnail">
+            <Button
+                android:id="@+id/userdetail_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:maxLines="1"
+                android:background="@drawable/shape_button_darkgreen"
+                android:padding="2dp"
+                android:text="编辑"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+            <Button
+                android:id="@+id/userdetail_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:maxLines="1"
+                android:background="@drawable/shape_button_darkgreen"
+                android:padding="2dp"
+                android:text="确认"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp">
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/white"
+        android:id="@+id/tab_list1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:showDividers="middle"
+        android:divider="@drawable/divider_horizontal"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/item_clicked_effect">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center"
+                    android:text="昵称"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+                <EditText
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:background="@drawable/shape_label"
+                    android:src="@mipmap/right"
+                    android:id="@+id/userdetail_nickname" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/item_clicked_effect">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center"
+                    android:text="姓名"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+                <EditText
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:src="@mipmap/right"
+                    android:id="@+id/userdetail_name2" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/item_clicked_effect">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center"
+                    android:text="身份证"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+                <EditText
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:src="@mipmap/right"
+                    android:id="@+id/userdetail_idcard" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/item_clicked_effect">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center"
+                    android:text="联系电话"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+                <EditText
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:src="@mipmap/right"
+                    android:id="@+id/userdetail_phone" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/item_clicked_effect">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center"
+                    android:text="电子邮箱"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+                <EditText
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:src="@mipmap/right"
+                    android:id="@+id/userdetail_email" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/item_clicked_effect">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center"
+                    android:text="家庭住址"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+                <EditText
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:src="@mipmap/right"
+                    android:id="@+id/userdetail_address" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+    </LinearLayout>
+</LinearLayout>

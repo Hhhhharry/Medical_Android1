@@ -1,18 +1,16 @@
 package cn.wydewy.medicalapp;
 
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
-
-import static cn.wydewy.medicalapp.R.id.date;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity implements OnClickListener {
@@ -21,8 +19,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     private Fragment_hospital fHospital;
     private Fragment_my fMy;
     private FragmentManager fManager;
-    private data da;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,14 +28,12 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         initView();
         initEvent();
         fManager = getSupportFragmentManager();
+        System.out.println(((MedicalApplication) getApplication()).getUrlhead());
 
-        da = (data) getApplication();
-        if(!da.isLog())
-            setSelect(0);
-        else
-            setSelect(1);
+        setSelect(0);
 
     }
+
     private void initEvent() {
         btnhospital.setOnClickListener(this);
         btnmy.setOnClickListener(this);
@@ -58,7 +52,10 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                 setSelect(0);
                 break;
             case R.id.btn2:
-                setSelect(1);
+                if(MedicalApplication.getInstance().isLog()){
+
+                    setSelect(1);
+                }
                 break;
         }
     }
@@ -95,10 +92,22 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             transaction.hide(fMy);
         }
     }
-    public void ChangeOnClick(View view)
-    {
-        switch (view.getId())
-        {
+
+    public void MyOnClick(View view) {
+        switch (view.getId()) {
+            case R.id.my_yyjl:
+                Intent it = new Intent(this, OrderRecord_Activity.class);
+                startActivity(it);
+                break;
+            case R.id.User_detail:
+                Intent it2 = new Intent(this, UserDetail_Activity.class);
+                startActivity(it2);
+                break;
+        }
+    }
+
+    public void ChangeOnClick(View view) {
+        switch (view.getId()) {
             case R.id.item1:
                 Intent it = new Intent(this, Introduce_Activity.class);
                 startActivity(it);
@@ -107,6 +116,10 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             case R.id.item2:
                 Intent it2 = new Intent(this, Guide_Activity.class);
                 startActivity(it2);
+                break;
+            case R.id.item3:
+                Intent it3 = new Intent(this, Section_Activity.class);
+                startActivity(it3);
                 break;
             case R.id.item4:
                 Intent it4 = new Intent(this, Schedule_Activity.class);
@@ -119,5 +132,21 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         }
     }
 
+    private long time = 0;
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+                if (System.currentTimeMillis() - time < 2000) {
+                    finish();
+                } else {
+                    Toast.makeText(this, "再点一次退出", Toast.LENGTH_SHORT).show();
+                    time = System.currentTimeMillis();
+                }
+                break;
+        }
+        return false;
+    }
 }
 

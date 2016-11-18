@@ -29,4 +29,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile files('src/main/java/lib/android-support-v4.jar')
     compile files('src/main/java/lib/volley.jar')
+    compile files('src/main/java/lib/fastjson-1.2.7.jar')
+    compile files('src/main/java/lib/httpmime-4.2.5.jar')
+    compile files('src/main/java/lib/org.apache.http.legacy.jar')
 }

@@ -32,7 +32,8 @@ public class Register2_Activity extends AppCompatActivity {
     }
     public void LoginOnClick(View view)
     {
-        String url = "http://192.168.1.132:8080/framework/customer/register";
+        String urlhead = ((MedicalApplication)getApplication()).getUrlhead();
+        String url = urlhead + "framework/customer/register";
         final String a = account.getText().toString();
         final String i = idcard.getText().toString();
         final String ph = phonenumber.getText().toString();
