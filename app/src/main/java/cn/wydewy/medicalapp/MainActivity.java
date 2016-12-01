@@ -9,27 +9,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class MainActivity extends AppCompatActivity implements OnClickListener {
+public class MainActivity extends BaseActivity implements OnClickListener {
     //private LinearLayout tabHospital,tabMy;
     private TextView btnhospital, btnmy;
     private Fragment_hospital fHospital;
     private Fragment_my fMy;
     private FragmentManager fManager;
+    private ImageView Imghospital,Imgmy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().hide();
         initView();
         initEvent();
         fManager = getSupportFragmentManager();
-        System.out.println(((MedicalApplication) getApplication()).getUrlhead());
-
         setSelect(0);
 
     }
@@ -42,46 +41,55 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     private void initView() {
         btnhospital = (TextView) findViewById(R.id.btn1);
         btnmy = (TextView) findViewById(R.id.btn2);
+        Imghospital = (ImageView) findViewById(R.id.Fh_img_hospital);
+        Imgmy = (ImageView) findViewById(R.id.Fh_img_my);
     }
 
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn1:
+            case R.id.id_tab1:
                 setSelect(0);
                 break;
-            case R.id.btn2:
-                if(MedicalApplication.getInstance().isLog()){
-
-                    setSelect(1);
-                }
+            case R.id.id_tab2:
+                setSelect(1);
                 break;
         }
     }
 
     private void setSelect(int i) {
         FragmentTransaction transaction = fManager.beginTransaction();
+        setNormal();
         hideFragment(transaction);
         switch (i) {
             case 0:
+
                 if (fHospital == null) {
                     fHospital = new Fragment_hospital();
                     transaction.add(R.id.id_content, fHospital);
                 } else {
                     transaction.show(fHospital);
                 }
+                Imghospital.setBackgroundResource(R.mipmap.hospital_press);
                 break;
             case 1:
+
                 if (fMy == null) {
                     fMy = new Fragment_my();
                     transaction.add(R.id.id_content, fMy);
                 } else {
                     transaction.show(fMy);
                 }
+                Imgmy.setBackgroundResource(R.mipmap.mypress);
                 break;
         }
         transaction.commit();
+    }
+
+    private void setNormal() {
+        Imghospital.setBackgroundResource(R.mipmap.hospital);
+        Imgmy.setBackgroundResource(R.mipmap.my);
     }
 
     private void hideFragment(FragmentTransaction transaction) {

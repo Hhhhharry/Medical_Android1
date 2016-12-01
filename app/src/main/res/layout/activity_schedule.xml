@@ -5,32 +5,94 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:divider="@drawable/divider_horizontal"
+    android:divider="@drawable/divider_horizontal_gray"
     android:showDividers="middle"
     tools:context="cn.wydewy.medicalapp.Order_Activity">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <include layout="@layout/top_back_first"></include>
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:background="@color/green_dark"
-        android:gravity="center"
+        android:layout_height="20dp"
+        android:background="#8B8B00"
         android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="#006400"
-            android:id="@+id/Schedule_Activity_Title"
-            android:text="预约挂号"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:text="上午"
             android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textSize="15sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:text="向右滑动可查看周末"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            />
+    </RelativeLayout>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbarSize="0dp"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+        <GridView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/grid1"
+            android:numColumns="7"
+            android:gravity="center">
+        </GridView>
+        </LinearLayout>
+    </HorizontalScrollView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@color/green_mid"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:text="下午"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:text="向右滑动可查看周末"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            />
+    </RelativeLayout>
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbarSize="0dp"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <GridView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/grid2"
+                android:numColumns="7"
+                android:gravity="center">
+            </GridView>
+        </LinearLayout>
+    </HorizontalScrollView>
     </LinearLayout>
 
-    <GridView
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/grid1"
-        android:numColumns="5"
-        android:gravity="center">
-    </GridView>
-</LinearLayout>

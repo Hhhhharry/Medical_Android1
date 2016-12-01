@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -18,8 +19,9 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Register2_Activity extends AppCompatActivity {
+public class Register2_Activity extends BaseBackActivity {
     private EditText idcard,account,phonenumber,password;
+    private TextView top_title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +31,9 @@ public class Register2_Activity extends AppCompatActivity {
         idcard = (EditText) findViewById(R.id.idcard1);
         phonenumber = (EditText) findViewById(R.id.phone_number1);
         password = (EditText) findViewById(R.id.password1);
+        top_title = (TextView) findViewById(R.id.top_title);
+
+        top_title.setText("用户注册");
     }
     public void LoginOnClick(View view)
     {
@@ -79,5 +84,14 @@ public class Register2_Activity extends AppCompatActivity {
         Toast toast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
         toast.setText("注册失败！！");
         toast.show();
+    }
+    public void BackonClick(View view) {
+        finish();
+    }
+    public void FristonClick(View view) {
+        Intent it = new Intent(this, MainActivity.class);
+        it.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(it);
+        this.finish();
     }
 }

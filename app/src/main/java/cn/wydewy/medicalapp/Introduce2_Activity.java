@@ -3,6 +3,7 @@ package cn.wydewy.medicalapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -24,7 +25,7 @@ import java.util.Map;
 
 import cn.wydewy.medicalapp.util.Constant;
 
-public class Introduce2_Activity extends AppCompatActivity {
+public class Introduce2_Activity extends BaseBackActivity {
 
     private MedicalApplication da;
     private JSONArray json;
@@ -39,17 +40,20 @@ public class Introduce2_Activity extends AppCompatActivity {
         Intent intent = getIntent(); //用于激活它的意图对象：这里的intent获得的是上个Activity传递的intent
         Bundle bundle = intent.getExtras();
         item = bundle.getString("selectedItem");
-        title = (TextView) findViewById(R.id.title);
+        title = (TextView) findViewById(R.id.top_title);
 
 
         Map<String,String> map = new HashMap<>();
         map.put("MedicalApplication",item);                                   //传值 outpatientName
+
+
 
         CustomRequest jsonObjectRequest = new CustomRequest(Request.Method.POST, Constant.API_SECTION_DOCTOR_LIST,map,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject jsonObject) {
                         json = jsonObject.optJSONArray("datum");
+                        Log.d("datum",json.toString());
                         setDoctor();
                     }
                 },
@@ -107,6 +111,14 @@ public class Introduce2_Activity extends AppCompatActivity {
             }
         });
     }
-
+    public void BackonClick(View view) {
+        finish();
+    }
+    public void FristonClick(View view) {
+        Intent it = new Intent(this, MainActivity.class);
+        it.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(it);
+        this.finish();
+    }
 }
 

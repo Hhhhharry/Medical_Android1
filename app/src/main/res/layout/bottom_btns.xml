@@ -1,24 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="70dp"
     android:divider="@drawable/divider_vertical"
     android:showDividers="middle"
     android:orientation="horizontal">
-
     <LinearLayout
         android:id="@+id/id_tab1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:onClick="onClick"
         android:layout_weight="1"
         android:background="@color/white"
+        android:padding = "15dp"
         android:gravity="center"
-        android:orientation="vertical">
-
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/Fh_img_hospital"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/hospital"/>
         <TextView
             android:id="@+id/btn1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/xiao_yiyuan"
             android:textColor="@color/black"
@@ -32,16 +40,26 @@
         android:layout_weight="1"
         android:background="@color/white"
         android:gravity="center"
-        android:orientation="vertical">
-
+        android:padding = "15dp"
+        android:onClick="onClick"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/Fh_img_my"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/my"/>
         <TextView
             android:id="@+id/btn2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/wo"
             android:textColor="@color/black"
             android:textSize="15sp" />
+
 
     </LinearLayout>
 

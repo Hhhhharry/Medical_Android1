@@ -7,21 +7,7 @@
     android:showDividers="middle"
     android:orientation="vertical"
     tools:context="cn.wydewy.medicalapp.Guide_Activity">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:background="@color/green_dark"
-        android:gravity="center"
-        android:orientation="vertical">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="医院导航"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            />
-    </LinearLayout>
+    <include layout="@layout/top_back_first"></include>
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="150dp"
@@ -47,7 +33,7 @@
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:textColor="@color/black"
-            android:background="@drawable/shape_label"
+            android:background="@drawable/shape_label_gray_up_radius"
             android:text="@string/hospitaltrans"/>
             <TextView
                 android:layout_width="match_parent"
@@ -55,7 +41,7 @@
                 android:textSize="15sp"
                 android:textColor="@color/black"
                 android:id="@+id/bus"
-                android:background="@drawable/shape_label"
+                android:background="@drawable/shape_label_gray_bottom_radius"
                 android:text="途径公交：102,111,998"/>
         </LinearLayout>
 
@@ -69,14 +55,14 @@
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:textColor="@color/black"
-                android:background="@drawable/shape_label"
+                android:background="@drawable/shape_label_gray_up_radius"
                 android:text="医院网址"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:textSize="15sp"
                 android:textColor="@color/black"
-                android:background="@drawable/shape_label"
+                android:background="@drawable/shape_label_gray_bottom_radius"
                 android:id="@+id/website"
                 android:text="www.bupt.hospital.com"/>
         </LinearLayout>
@@ -91,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:textColor="@color/black"
-                android:background="@drawable/shape_label"
+                android:background="@drawable/shape_label_gray_up_radius"
                 android:text="联系电话"/>
             <TextView
                 android:layout_width="match_parent"
@@ -99,7 +85,7 @@
                 android:textSize="15sp"
                 android:textColor="@color/black"
                 android:id="@+id/hospital_phone"
-                android:background="@drawable/shape_label"
+                android:background="@drawable/shape_label_gray_bottom_radius"
                 android:text="010-85656569"/>
         </LinearLayout>
     </LinearLayout>

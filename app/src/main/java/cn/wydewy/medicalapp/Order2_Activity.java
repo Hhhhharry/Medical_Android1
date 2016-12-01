@@ -31,10 +31,11 @@ import java.util.List;
 import cn.wydewy.medicalapp.model.Section;
 import cn.wydewy.medicalapp.util.Constant;
 
-public class Order2_Activity extends AppCompatActivity {
+public class Order2_Activity extends BaseBackActivity {
 
     private List<Section> items = new ArrayList<>();
     private BaseAdapter adapter;
+    private TextView top_title;
 
 
     @Override
@@ -42,6 +43,11 @@ public class Order2_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order2);
         getSupportActionBar().hide();
+
+        top_title = (TextView) findViewById(R.id.top_title);
+        top_title.setText("预约挂号");
+
+
 
         initListView();
         Sections();
@@ -126,6 +132,15 @@ public class Order2_Activity extends AppCompatActivity {
             });
         MedicalApplication.getInstance().addToRequestQueue(jsonObjectRequest);
 
+    }
+    public void BackonClick(View view) {
+        finish();
+    }
+    public void FristonClick(View view) {
+        Intent it = new Intent(this, MainActivity.class);
+        it.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(it);
+        this.finish();
     }
 
 

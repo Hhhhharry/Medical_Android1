@@ -5,12 +5,14 @@
     <solid android:color="@android:color/white"/>
     <!-- 边框 -->
     <stroke
-        android:width="0.5dp"
-        android:color="@color/black"/>
+        android:width="0.25dp"
+        android:color="@android:color/darker_gray"/>
+    <!-- 圆角 -->
     <!-- 边距 -->
     <padding
         android:top="10dp"
         android:bottom="10dp"
         android:left="10dp"
         android:right="10dp"/>
+
 </shape>

@@ -21,13 +21,12 @@ import org.json.JSONObject;
 import cn.wydewy.medicalapp.util.Constant;
 
 
-public class Introduce_Activity extends AppCompatActivity {
+public class Introduce_Activity extends BaseBackActivity {
 
     private MedicalApplication da;
     private JSONObject json;
     private JSONArray jsonarray;
-    private TextView Intro;
-    private String[] items = new String[]{"儿科","内科","妇产科","血科","保健科","皮肤科","外科","眼科","儿童科","肾内科","妇产科","血科"};
+    private TextView Intro,top_title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,8 +34,9 @@ public class Introduce_Activity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         Intro = (TextView) findViewById(R.id.introduce);
+        top_title = (TextView) findViewById(R.id.top_title);
 
-
+        top_title.setText("医院介绍");
 
         CustomRequest jsonObjectRequest = new CustomRequest(Constant.API_HOSPITAL_DETAIL, null,
                 new Response.Listener<JSONObject>() {
@@ -120,5 +120,15 @@ public class Introduce_Activity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void BackonClick(View view) {
+        finish();
+    }
+    public void FristonClick(View view) {
+        Intent it = new Intent(this, MainActivity.class);
+        it.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(it);
+        this.finish();
     }
 }

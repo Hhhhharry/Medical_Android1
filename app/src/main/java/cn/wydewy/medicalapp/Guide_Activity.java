@@ -1,7 +1,9 @@
 package cn.wydewy.medicalapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
@@ -11,10 +13,10 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
-public class Guide_Activity extends AppCompatActivity {
+public class Guide_Activity extends BaseBackActivity {
 
     private JSONObject json;
-    private TextView website,bus,phone;
+    private TextView website,bus,phone,top_title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +26,9 @@ public class Guide_Activity extends AppCompatActivity {
         website = (TextView) findViewById(R.id.website);
         bus = (TextView) findViewById(R.id.bus);
         phone = (TextView) findViewById(R.id.hospital_phone);
+        top_title = (TextView) findViewById(R.id.top_title);
+
+        top_title.setText("医院导航");
 
         String url = ((MedicalApplication)getApplication()).getUrlhead();
         String url1 = url + "framework/hospital/searchHosInfo";
@@ -46,5 +51,14 @@ public class Guide_Activity extends AppCompatActivity {
                     }
                 });
         mqueue.add(jsonObjectRequest);
+    }
+    public void BackonClick(View view) {
+        finish();
+    }
+    public void FristonClick(View view) {
+        Intent it = new Intent(this, MainActivity.class);
+        it.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(it);
+        this.finish();
     }
 }

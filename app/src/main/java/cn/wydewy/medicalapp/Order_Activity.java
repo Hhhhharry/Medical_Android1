@@ -5,15 +5,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.TextView;
 
-public class Order_Activity extends AppCompatActivity implements OnClickListener{
+public class Order_Activity extends BaseBackActivity implements OnClickListener{
 
-
+    private TextView top_title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
         getSupportActionBar().hide();
+
+        top_title = (TextView) findViewById(R.id.top_title);
+        top_title.setText("预约挂号");
     }
 
     @Override
@@ -40,6 +44,15 @@ public class Order_Activity extends AppCompatActivity implements OnClickListener
     }
 
     private void change() {
+        Intent it = new Intent(this, MainActivity.class);
+        it.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(it);
+        this.finish();
+    }
+    public void BackonClick(View view) {
+        finish();
+    }
+    public void FristonClick(View view) {
         Intent it = new Intent(this, MainActivity.class);
         it.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(it);

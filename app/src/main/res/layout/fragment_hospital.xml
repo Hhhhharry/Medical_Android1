@@ -8,26 +8,27 @@
         android:id="@+id/tab01"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@drawable/divider_horizontal"
+        android:divider="@drawable/divider_horizontal_gray"
         android:showDividers="middle"
         android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dip">
         <android.support.v4.view.ViewPager
             android:id = "@+id/viewPager"
-            android:layout_width="wrap_content"
-            android:layout_height="180dip"/>
-        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom = "@id/viewPager"
-            android:orientation="vertical">
-            <LinearLayout
-                android:id="@+id/point_group"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="horizontal">
-            </LinearLayout>
+            android:layout_height="match_parent"/>
+        <LinearLayout
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:background="#00000000"
+            android:id="@+id/point_group"
+            android:orientation="horizontal">
         </LinearLayout>
+        </RelativeLayout>
 
 
 
@@ -35,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:divider="@drawable/divider_vertical"
+            android:divider="@drawable/divider_vertical_gray"
             android:gravity="center_horizontal"
             android:orientation="horizontal"
             android:showDividers="middle">
@@ -43,7 +44,7 @@
                 android:id="@+id/item1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:paddingTop="@dimen/activity_vertical_margin2"
+                android:paddingTop="@dimen/activity_vertical_margin"
                 android:paddingBottom="@dimen/activity_vertical_margin2"
                 android:paddingLeft="@dimen/activity_horizontal_margin"
                 android:paddingRight="@dimen/activity_horizontal_margin"
@@ -113,7 +114,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:divider="@drawable/divider_vertical"
+            android:divider="@drawable/divider_vertical_gray"
             android:gravity="center_horizontal"
             android:orientation="horizontal"
             android:layout_weight="1"

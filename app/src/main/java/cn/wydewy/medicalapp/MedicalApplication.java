@@ -9,6 +9,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
+import cn.wydewy.medicalapp.model.Customer;
 import cn.wydewy.medicalapp.util.Constant;
 
 /**
@@ -23,7 +24,20 @@ public class MedicalApplication extends Application {
     private String urlhead = "http://192.168.1.102:8080/";
     private String account;
 
+    private Customer customer;
     private RequestQueue mRequestQueue;
+
+
+
+    private String CustomerId,CustomerName;
+
+    public static MedicalApplication getMedicalApplication() {
+        return medicalApplication;
+    }
+
+    public static void setMedicalApplication(MedicalApplication medicalApplication) {
+        MedicalApplication.medicalApplication = medicalApplication;
+    }
 
     private static final String TAG = MedicalApplication.class.getSimpleName();
 
@@ -92,9 +106,39 @@ public class MedicalApplication extends Application {
         editor.putBoolean(Constant.IS_LOG,log);
         editor.commit();
     }
+    public String getCustomerId() {
+        SharedPreferences preferences = getApplicationContext().getSharedPreferences("medical",MODE_PRIVATE);
+        return preferences.getString(Constant.Customer_Id," ");
+    }
+
+    public void setCustomerId(String customerId) {
+        SharedPreferences preferences = getApplicationContext().getSharedPreferences("medical",Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(Constant.Customer_Id,customerId);
+        editor.commit();
+    }
+    public String getCustomerName() {
+        SharedPreferences preferences = getApplicationContext().getSharedPreferences("medical",MODE_PRIVATE);
+        return preferences.getString(Constant.Customer_Name," ");
+    }
+
+    public void setCustomerName(String customerName) {
+        SharedPreferences preferences = getApplicationContext().getSharedPreferences("medical",Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(Constant.Customer_Name,customerName);
+        editor.commit();
+    }
+    public Customer getCustomer() {
+
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
 
-   public static final  MedicalApplication getInstance(){
+    public static final  MedicalApplication getInstance(){
         return  medicalApplication;
     }
 

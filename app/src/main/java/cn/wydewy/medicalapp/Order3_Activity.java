@@ -32,7 +32,7 @@ import cn.wydewy.medicalapp.model.OutPatient;
 import cn.wydewy.medicalapp.model.Section;
 import cn.wydewy.medicalapp.util.Constant;
 
-public class Order3_Activity extends AppCompatActivity {
+public class Order3_Activity extends BaseBackActivity {
 
 
 
@@ -53,7 +53,7 @@ public class Order3_Activity extends AppCompatActivity {
         item = bundle.getString(Constant.Section_ID);
         sectionname = bundle.getString(Constant.Section_Name);
 
-        TextView title = (TextView) findViewById(R.id.Order3_Activity_Title);
+        TextView title = (TextView) findViewById(R.id.top_title);
         title.setText(sectionname);
 
         initListview();
@@ -148,5 +148,14 @@ public class Order3_Activity extends AppCompatActivity {
 
         MedicalApplication.getInstance().addToRequestQueue(jsonObjectRequest);
 
+    }
+    public void BackonClick(View view) {
+        finish();
+    }
+    public void FristonClick(View view) {
+        Intent it = new Intent(this, MainActivity.class);
+        it.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(it);
+        this.finish();
     }
 }

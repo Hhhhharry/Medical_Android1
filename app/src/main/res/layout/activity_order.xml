@@ -6,25 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    android:divider="@drawable/divider_horizontal"
-    android:showDividers="middle"
     tools:context="cn.wydewy.medicalapp.Order_Activity">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:background="@color/green_dark"
-        android:gravity="center"
-        android:orientation="vertical">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="#00ffffff"
-            android:textColor="@color/white"
-            android:text="预约挂号"
-            android:textSize="20sp"
-            />
-    </LinearLayout>
+    <include layout="@layout/top_back_first"></include>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -43,7 +26,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/shape_label">
+                android:background="@drawable/shape_label_gray_two_radius">
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -77,7 +60,7 @@
                 android:layout_height="match_parent"
                 android:onClick="onClick"
                 android:id="@+id/register"
-                android:background="@drawable/shape_label">
+                android:background="@drawable/shape_label_gray_two_radius">
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -111,7 +94,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/order2"
                 android:onClick="onClick"
-                android:background="@drawable/shape_label">
+                android:background="@drawable/shape_label_gray_two_radius">
 
                 <ImageView
                     android:layout_width="0dp"
@@ -146,7 +129,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/shape_label">
+                android:background="@drawable/shape_label_gray_two_radius">
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"

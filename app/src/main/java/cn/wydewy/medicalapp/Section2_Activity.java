@@ -3,6 +3,7 @@ package cn.wydewy.medicalapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -18,7 +19,7 @@ import java.util.Map;
 
 import cn.wydewy.medicalapp.util.Constant;
 
-public class Section2_Activity extends AppCompatActivity {
+public class Section2_Activity extends BaseBackActivity {
 
     private JSONObject json;
     private TextView title,detail,post,location;
@@ -33,7 +34,7 @@ public class Section2_Activity extends AppCompatActivity {
         String item = bundle.getString("selectedItem");
 
         location = (TextView) findViewById(R.id.section2_location);
-        title = (TextView) findViewById(R.id.section2_titleSection);
+        title = (TextView) findViewById(R.id.top_title);
         post = (TextView) findViewById(R.id.section2_youbian);
         detail = (TextView) findViewById(R.id.section2_detail);
 
@@ -66,5 +67,15 @@ public class Section2_Activity extends AppCompatActivity {
         detail.setText(json.optString("sectionintro").toString());
         post.setText(json.optString("sectioncode").toString());
         location.setText(json.optString("sectionloc").toString());
+    }
+
+    public void BackonClick(View view) {
+        finish();
+    }
+    public void FristonClick(View view) {
+        Intent it = new Intent(this, MainActivity.class);
+        it.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(it);
+        this.finish();
     }
 }

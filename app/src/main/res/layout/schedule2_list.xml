@@ -26,7 +26,7 @@
                 android:padding="2dp"
                 android:text="2016-11-21"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
                 <TextView
                     android:id="@+id/Schedule2_Activity_list_week"
                     android:layout_width="wrap_content"
@@ -36,7 +36,7 @@
                     android:padding="2dp"
                     android:text="星期一"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
                 <TextView
                     android:id="@+id/Schedule2_Activity_list_ampm"
                     android:layout_width="wrap_content"
@@ -46,7 +46,7 @@
                     android:padding="2dp"
                     android:text="上午"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout

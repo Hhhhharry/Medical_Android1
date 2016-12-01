@@ -5,8 +5,8 @@
     <solid android:color="@android:color/holo_green_light"/>
     <!-- 边框 -->
     <stroke
-        android:width="0.5dp"
-        android:color="@color/black"/>
+        android:width="0.25dp"
+        android:color="@android:color/white"/>
     <!-- 边距 -->
     <padding
         android:top="10dp"

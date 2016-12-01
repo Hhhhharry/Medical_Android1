@@ -28,16 +28,20 @@ import java.util.List;
 import cn.wydewy.medicalapp.model.Section;
 import cn.wydewy.medicalapp.util.Constant;
 
-public class Section_Activity extends AppCompatActivity {
+public class Section_Activity extends BaseBackActivity {
 
     private List<Section> items = new ArrayList<>();
     private JSONArray json;
+    private TextView top_title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section);
         getSupportActionBar().hide();
 
+
+        top_title = (TextView) findViewById(R.id.top_title);
+        top_title.setText("预约挂号");
 
 
         CustomRequest jsonObjectRequest = new CustomRequest(Constant.API_HOSPITAL_SECTION_LIST, null,
@@ -111,4 +115,14 @@ public class Section_Activity extends AppCompatActivity {
             }
         });
     }
+    public void BackonClick(View view) {
+        finish();
+    }
+    public void FristonClick(View view) {
+        Intent it = new Intent(this, MainActivity.class);
+        it.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(it);
+        this.finish();
+    }
+
 }

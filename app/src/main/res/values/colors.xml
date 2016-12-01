@@ -11,4 +11,5 @@
     <color name="item_normal_color">#00ffffff</color>
     <color name="green_dark">#006400</color>
     <color name="blue">#3333ff</color>
+    <color name="green_mid">#8B8B00</color>
 </resources>

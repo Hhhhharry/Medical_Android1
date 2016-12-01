@@ -37,40 +37,38 @@ public class Fragment_hospital extends Fragment {
         }
     };
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_hospital, container, false);
-
         viewPager = (ViewPager) view.findViewById(R.id.viewPager);
         point_group = (LinearLayout) view.findViewById(R.id.point_group);
 
-
         // 初始化图片资源
         imageList = new ArrayList<ImageView>();
+        View pointView;
         for (int i : images) {
             // 初始化图片资源
             ImageView imageView = new ImageView(getActivity());//
             imageView.setBackgroundResource(i);
             imageList.add(imageView);
-            // 添加指示小点
-            ImageView point = new ImageView(getActivity());//
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(100,
-                    15);
-           // params.rightMargin = 20;
-            //params.bottomMargin = 10;
-            point.setLayoutParams(params);
-            point.setBackgroundResource(R.mipmap.point_bg);
+
+            pointView = new View(getActivity());
+            pointView.setBackgroundResource(R.drawable.selector_bg);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(25,25);
             if (i == R.mipmap.p1) {
                 //默认聚焦在第一张
-                point.setBackgroundResource(R.mipmap.point_bg_focus);
-                point.setEnabled(true);
+                pointView.setBackgroundResource(R.drawable.selector_bg);
+                pointView.setEnabled(true);
             } else {
-                point.setEnabled(false);
+                pointView.setEnabled(false);
+                params.leftMargin = 15;
             }
+            point_group.addView(pointView,params);
 
-            point_group.addView(point);
         }
 
 
@@ -91,9 +89,11 @@ public class Fragment_hospital extends Fragment {
 
                 // 把当前点设置为true,将上一个点设为false；并设置point_group图标
                 point_group.getChildAt(position).setEnabled(true);
-                point_group.getChildAt(position).setBackgroundResource(R.mipmap.point_bg_focus);//设置聚焦时的图标样式
+
+                //point_group.getChildAt(position).setBackgroundResource(R.mipmap.point_bg_focus);//设置聚焦时的图标样式
                 point_group.getChildAt(lastPosition).setEnabled(false);
-                point_group.getChildAt(lastPosition).setBackgroundResource(R.mipmap.point_bg);//上一张恢复原有图标
+
+                //point_group.getChildAt(lastPosition).setBackgroundResource(R.mipmap.point_bg);//上一张恢复原有图标
                 lastPosition = position;
 
             }
